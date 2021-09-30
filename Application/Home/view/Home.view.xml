@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.ContactsApp.Application.Home.controller.Home"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core">
+    <OverflowToolbar class="sapUiSizeCompact">
+        <ToolbarSpacer/>
+        <Button text="Log out" type="Reject" width="100px" press=".onPressLogOutBtn"/>
+    </OverflowToolbar>
+    <SplitApp id="splitApp" initialDetail="detail" initialMaster="master">
+        <detailPages>
+            <Page id="editContact" title="Edit Contact" backgroundDesign= "Solid">
+                <l:VerticalLayout class="sapUiContentPadding">
+                    <Avatar src="{/currentContact/image}" displaySize="XL" displayShape="Circle" showBorder="true"/>
+                    <u:FileUploader id="editContactFileUploader" change="handleEditContactFileUploadChange" tooltip="Upload your profile image" style="Emphasized" fileType="jpg,jpeg,png" placeholder="Choose a file"/>
+                    <Label text="Name" labelFor="editNameInput"/>
+                    <Input id="editNameInput" type="Text" placeholder="Enter Name" value="{/currentContact/name}"/>
+                    <Label text="Last Name" labelFor="lasteditNameInput" />
+                    <Input id="lasteditNameInput" type="Text" placeholder="Enter Last Name" value="{/currentContact/lastName}"/>
+                    <Label text="E-Mail" labelFor="editEMailInput" />
+                    <Input id="editEMailInput" type="Text" placeholder="Enter E-Mail" value="{/currentContact/eMail}"/>
+                    <Label text="Password" labelFor="editPasswordInput" />
+                    <Input id="editPasswordInput" type="Text" placeholder="Enter password" value="{/currentContact/password}"/>
+                    <Button text="Save" type="Accept" width="100%" press=".onPressSaveBtn"/>
+                    <Button text="Delete" type="Reject" width="100%" press=".onPressDeleteBtn"/>
+                    <Button text="Cancel" type="Default" width="100%" press=".onPressEditContactCancelBtn"/>
+                </l:VerticalLayout>
+            </Page>
+            <Page id="addContact" title="Add Contact" backgroundDesign= "Solid" showNavButton="true" navButtonPress=".onPressNavToEditContactPage">
+                <l:VerticalLayout class="sapUiContentPadding">
+                    <Avatar src="{/addContact/image}" displaySize="XL" displayShape="Circle" showBorder="true"/>
+                    <u:FileUploader id="addContactFileUploader" change="handleAddContactFileUploadChange" tooltip="Upload your profile image" style="Emphasized" fileType="jpg,jpeg,png" placeholder="Choose a file"/>
+                    <Label text="Name" labelFor="addNameInput"/>
+                    <Input id="addNameInput" type="Text" placeholder="Enter Name" value="{/addContact/name}"/>
+                    <Label text="Last Name" labelFor="lastaddNameInput" />
+                    <Input id="lastaddNameInput" type="Text" placeholder="Enter Last Name" value="{/addContact/lastName}"/>
+                    <Label text="E-Mail" labelFor="addEMailInput" />
+                    <Input id="addEMailInput" type="Text" placeholder="Enter E-Mail" value="{/addContact/eMail}"/>
+                    <Label text="Password" labelFor="addPasswordInput" />
+                    <Input id="addPasswordInput" type="Text" placeholder="Enter password" value="{/addContact/password}"/>
+                    <Button text="Add" type="Accept" width="100%" press=".onPressAddBtn"/>
+                    <Button text="Cancel" type="Default" width="100%" press=".onPressAddContactCancelBtn"/>
+                </l:VerticalLayout>
+            </Page>
+        </detailPages>
+        <masterPages>
+            <Page id="listContactPage" title="Contacts" backgroundDesign= "List">
+                <ActionListItem id="addNewContactListItem" text="Add new contact" type="Navigation" press=".onPressNavToAddContactPage"/>
+                <List id="listContact" items="{/contacts}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <SearchField width="100%" liveChange="onFilterListContact" placeholder="Find contact..."/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <ObjectListItem title="{name} {lastName}" type="Navigation" press=".onPressContactItem"/>
+                </List>
+            </Page>
+        </masterPages>
+    </SplitApp>
+</mvc:View>

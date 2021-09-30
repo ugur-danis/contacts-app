@@ -1,0 +1,10 @@
+<View controllerName="com.ContactsApp.Application.App.RootApp"
+    xmlns="sap.m" height="100%">
+    <App id="masterAppView">
+        <Page showHeader="false" class="sapUiNoContentPadding">
+            <VBox justifyContent="Center" alignItems="Center" width="100%" height="100%">
+                <BusyIndicator size="2em" />
+            </VBox>
+        </Page>
+    </App>
+</View>

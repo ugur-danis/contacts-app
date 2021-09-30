@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta charset="utf-8">
+    <title></title>
+    <script 
+        id="sap-ui-bootstrap" 
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        crossorigin="anonymous"
+        data-sap-ui-async="true"
+        data-sap-ui-theme="sap_fiori_3" 
+        data-sap-ui-libs="sap.m" 
+        data-sap-ui-bindingsyntax="complex"
+        data-sap-ui-compatversion="edge"
+        data-sap-ui-appCacheBuster="./" 
+        data-sap-ui-resourceroots='{ 
+            "com.ContactsApp": "./"
+        }'>
+    </script>
+
+    <!-- Configuration -->
+    <script src="Config.js" type="text/javascript"></script>
+    <script>
+        var config = new Config();
+        config.setTitle()
+    </script>
+
+    <!-- Resources CSS -->
+    <link rel="stylesheet" type="text/css" href="Resources/css/global.css">
+
+    <!-- Resources Plugins -->
+    <script src="Resources/plugins/base64.js" type="text/javascript"></script>
+    <script src="Resources/plugins/underscore-min.js" type="text/javascript"></script>
+    <script src="Resources/plugins/moment.min.js" type="text/javascript"></script>
+    <script src="Resources/plugins/tr.min.js" type="text/javascript"></script>
+    <script src="Resources/plugins/Logger.js" type="text/javascript"></script>
+
+    <script>
+        var Logger = LogTracker.getInstance({
+            namespace: Object.keys(window["sap-ui-config"].resourceroots).shift(),
+            username: "myuser.Username"
+        })
+
+        var myuser = {};
+        var oModel;
+
+        sap.ui.getCore().attachInit(function () {
+            oModel = new sap.ui.model.json.JSONModel;
+            oModel.setSizeLimit(5000);
+            sap.ui.getCore().setModel(oModel);
+        
+            new sap.ui.core.ComponentContainer({
+                name: "com.ContactsApp",
+                height: "100%"
+            }).placeAt("content");
+        });
+    </script>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" id="content">
+</body>
+
+</html>

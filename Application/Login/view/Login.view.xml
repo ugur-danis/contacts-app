@@ -1,0 +1,18 @@
+<mvc:View controllerName="com.ContactsApp.Application.Login.controller.Login"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    <Page title="Login" class="sapUiContentPadding">
+        <FlexBox alignItems="Center" justifyContent="Center">
+            <l:VerticalLayout class="sapUiContentPadding">
+                <Label text="E-Mail" labelFor="eMailInput" />
+                <Input id="eMailInput" type="Text" placeholder="Enter E-Mail" value="{/user/eMail}"/>
+                <Label text="Password" labelFor="passwordInput" />
+                <Input id="passwordInput" type="Password" placeholder="Enter password" value="{/user/password}"/>
+                <Button text="Login" type="Accept" width="100%" press=".onPressLoginBtn"/>
+                <Link text="Register" textAlign="Center" press=".onPressNavToRegisterPage" width="100%"/>
+            </l:VerticalLayout>
+        </FlexBox>
+    </Page>
+</mvc:View>

@@ -1,0 +1,26 @@
+<mvc:View controllerName="com.ContactsApp.Application.Register.controller.Register"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core">
+    <Page title="Register" class="sapUiContentPadding">
+        <FlexBox alignItems="Center" justifyContent="Center">
+            <l:VerticalLayout class="sapUiContentPadding">
+                <Avatar src="{/newUser/image}" displaySize="XL" displayShape="Circle" showBorder="true"/>
+                <u:FileUploader id="fileUploader" change="fileUploadChange" tooltip="Upload your profile image" style="Emphasized" fileType="jpg,jpeg,png" placeholder="Choose a file"/>
+                <Label text="Name" labelFor="nameInput"/>
+                <Input id="nameInput" type="Text" placeholder="Enter Name" value="{/newUser/name}"/>
+                <Label text="Last Name" labelFor="lastNameInput" />
+                <Input id="lastNameInput" type="Text" placeholder="Enter Last Name" value="{/newUser/lastName}"/>
+                <Label text="E-Mail" labelFor="eMailInput" />
+                <Input id="eMailInput" type="Text" placeholder="Enter E-Mail" value="{/newUser/eMail}"/>
+                <Label text="Password" labelFor="passwordInput" />
+                <Input id="passwordInput" type="Text" placeholder="Enter password" value="{/newUser/password}"/>
+                <Button text="Add" type="Accept" width="100%" press=".onPressAddBtn"/>
+                <Button text="Cancel" type="Default" width="100%" press=".onPressCancelBtn"/>
+                <Link text="Login" textAlign="Center" press=".onPressNavToLoginPage" width="100%"/>
+            </l:VerticalLayout>
+        </FlexBox>
+    </Page>
+</mvc:View>

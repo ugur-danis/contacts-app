@@ -1,0 +1,7 @@
+<mvc:View controllerName="com.ContactsApp.Application.Dashboard.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Dashboard" class="sapUiContentPadding">
+
+    </Page>
+</mvc:View>
